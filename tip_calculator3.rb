@@ -17,13 +17,13 @@ puts "Enter the tip in percentage"
 tip_s = gets
 tip = Float(tip_s)
 
-tax_value = calculate_value(meal, tax)
-meal_with_tax = meal + tax_value
-tip_value = calculate_value(meal_with_tax, tip)
+tax_value = calculate_value(meal, tax).round(2)
+meal_with_tax = meal.round(2) + tax_value.round(2)
+tip_value = calculate_value(meal_with_tax, tip).round(2)
 
-total_cost = meal_with_tax + tip_value
+total_cost = meal_with_tax.round(2) + tip_value.round(2)
 
 puts "The pre-tax cost of your meal was $" + sprintf('%.2f', meal)
 puts "At " + sprintf('%.f', tax) + "%, tax for this meal is $" + sprintf('%.2f', tax_value) + "."
 puts "For a " + sprintf('%.f', tip) + "% tip, you should leave $" + sprintf('%.2f', tip_value) + "."
-puts "The grand total for this meak is then $" + sprintf('%.2f', total_cost) + "."
+puts "The grand total for this meal is then $" + sprintf('%.2f', total_cost) + "."
